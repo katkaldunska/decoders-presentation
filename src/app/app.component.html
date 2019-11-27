@@ -1,0 +1,18 @@
+<router-outlet></router-outlet>
+
+<div [ngSwitch]="currentSlide" class="slide">
+    <h1 *ngSwitchCase="'title'">Dekodery JSON w Elm'ie</h1>
+    <section *ngSwitchCase="'problem'">
+        <h1 class="bg-danger">Problem</h1>
+        <div>
+            <h2>wiele endpointów</h2>
+            <h2>third party API</h2>
+            <h2>nie wiemy kiedy nastąpi zmiana</h2>
+
+            dużo endpointów, third party API, nie wiemy kiedy jest zmiana
+        </div>
+    </section>
+    <section *ngSwitchDefault>
+        <h1>default</h1>
+    </section>
+</div>
