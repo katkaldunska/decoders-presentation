@@ -1,18 +1,46 @@
 <router-outlet></router-outlet>
 
 <div [ngSwitch]="currentSlide" class="slide">
-    <h1 *ngSwitchCase="'title'">Dekodery JSON w Elm'ie</h1>
+    <h1 *ngSwitchCase="'title'" class="align-self-center">Dekodery JSON w Elm'ie</h1>
     <section *ngSwitchCase="'problem'">
-        <h1 class="bg-danger">Problem</h1>
+        <h1 class="bg-danger text-white">Problem</h1>
         <div>
-            <h2>wiele endpointów</h2>
-            <h2>third party API</h2>
-            <h2>nie wiemy kiedy nastąpi zmiana</h2>
-
-            dużo endpointów, third party API, nie wiemy kiedy jest zmiana
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item display-4">używamy wiele endpointów</li>
+                <li class="list-group-item display-4">third party API</li>
+                <li class="list-group-item display-4">nie wiemy kiedy coś się zmieni</li>
+            </ul>
         </div>
     </section>
+    <section *ngSwitchCase="'case'" class="flex-direction-row">
+        <app-json-printer></app-json-printer>
+    </section>
+
+    <section *ngSwitchCase="'code'" class="flex-direction-row">
+        <app-example-code></app-example-code>
+    </section>
+
+    <section *ngSwitchCase="'template-default'" class="flex-direction-row">
+        <app-example-template></app-example-template>
+    </section>
+
+    <section *ngSwitchCase="'case_change'" class="flex-direction-row">
+        <app-json-printer case="invalid"></app-json-printer>
+    </section>
+
+    <section *ngSwitchCase="'template-change'" class="flex-direction-row">
+        <app-example-template case="invalid"></app-example-template>
+    </section>
+
+    <section *ngSwitchCase="'case_object_object'" class="flex-direction-row">
+        <app-json-printer case="object_object"></app-json-printer>
+    </section>
+
+    <section *ngSwitchCase="'template-object_object'" class="flex-direction-row">
+        <app-example-template case="object_object"></app-example-template>
+    </section>
+
     <section *ngSwitchDefault>
-        <h1>default</h1>
+        <h1>KONIEC</h1>
     </section>
 </div>

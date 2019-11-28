@@ -1,0 +1,47 @@
+[
+    {
+        "author": "Stephen King",
+        "age": 72,
+        "books": [
+            {
+                "title": "Pet Sematary"
+            },
+            {
+                "title": "Salem’s lot"
+            },
+            {
+                "title": "Carrie"
+            }
+        ],
+        "alive": true
+    },
+    {
+        "author": "Neil Gaiman",
+        "age": 59,
+        "books": [
+            {
+                "title": "American Gods"
+            },
+            {
+                "title": "Sandman"
+            }
+        ],
+        "alive": true
+    },
+    {
+        "author": "J.R.R. Tolkien",
+        "age": 81,
+        "books": [
+            {
+                "title": "Hobbit"
+            },
+            {
+                "title": "Silmarillion"
+            },
+            {
+                "title": "Roverandom"
+            }
+        ],
+        "alive": false
+    }
+]

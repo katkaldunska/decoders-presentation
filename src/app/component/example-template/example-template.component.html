@@ -1,0 +1,14 @@
+<span *ngIf="(authorList$ | async)?.isLoading">loading...</span>
+
+<ul>
+    <li *ngFor="let item of (authorList$ | async)?.items">
+        <h3>{{ item.author }}</h3>
+        <p *ngIf="item.books.length">
+            <span *ngFor="let tag of sortedBooks(item)">{{ tag }}, </span>
+        </p>
+    </li>
+</ul>
+
+<div *ngIf="(authorList$ | async)?.error">
+    {{ (authorList$ | async).error }}
+</div>

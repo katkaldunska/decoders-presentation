@@ -7,7 +7,7 @@ import { EffectsModule } from '@ngrx/effects';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { authorListReducer } from './store/reducer';
+import { authorListReducer, errorsReducer } from './store/reducer';
 import { AuthorListEffects } from './store/effects';
 import { JsonPrinterComponent } from './component/json-printer/json-printer.component';
 import { ExampleCodeComponent } from './component/example-code/example-code.component';
@@ -26,14 +26,14 @@ import { ExampleTemplateComponent } from './component/example-template/example-t
         NgbModule,
         HttpClientModule,
         StoreModule.forRoot({
-            authorList: authorListReducer
+            authorList: authorListReducer,
+            errors: errorsReducer
         }),
         EffectsModule.forRoot([
             AuthorListEffects
         ])
     ],
-    providers: [
-    ],
+    providers: [],
     bootstrap: [AppComponent]
 })
 export class AppModule {

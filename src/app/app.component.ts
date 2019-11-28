@@ -6,23 +6,39 @@ import { Component, HostListener } from '@angular/core';
     styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+    public slides: string[] = [
+        'title',
+        'problem',
+        'case',
+        'code',
+        'template-default',
+        'case_change',
+        'template-change',
+        'case_object_object',
+        'template-object_object'
+    ];
+    public currentSlide: string;
+
     @HostListener('document:keydown', ['$event'])
     onKeydown(event: KeyboardEvent) {
-        if (event.code === 'ArrowRight') {
+        if (event.code === 'ArrowRight' || event.code === 'ArrowDown') {
             this.setCurrentSlide(1);
-        } else if (event.code === 'ArrowLeft') {
+        } else if (event.code === 'ArrowLeft' || event.code === 'ArrowUp') {
             this.setCurrentSlide(-1);
         }
     }
 
-    public slides: string[] = ['title', 'problem'];
-    public currentSlide: string = 'title';
-
     constructor() {
-
+        this.currentSlide = 'title';
     }
 
     private setCurrentSlide(increment: number): void {
-        this.currentSlide = this.slides[this.slides.findIndex(s => s === this.currentSlide) + increment];
+        const currentIndex: number = this.slides.findIndex(s => s === this.currentSlide);
+
+        if (currentIndex === -1 && increment === -1) {
+            this.currentSlide = this.slides[this.slides.length - 1];
+        } else {
+            this.currentSlide = this.slides[currentIndex + increment];
+        }
     }
 }
