@@ -15,9 +15,26 @@ export class AppComponent {
         'case_change',
         'template-change',
         'case_object_object',
-        'template-object_object'
+        'template-object_object',
+        'elm',
+        'runtime_exceptions',
+        'decoders',
+        'elm_example',
+        'ts_data_json',
+        'decoder_example',
+        'decode'
     ];
     public currentSlide: string;
+    public serviceCode = `
+        return this.http.get<AuthorItem[]>(path).pipe(
+                concatMap(p => fromPromise(AuthorListDecoder
+                    .decodePromise(p)
+                    .catch(e => {
+                        throw new Error(e);
+                    })
+                ))
+            );
+    `;
 
     @HostListener('document:keydown', ['$event'])
     onKeydown(event: KeyboardEvent) {

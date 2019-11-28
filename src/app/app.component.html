@@ -12,6 +12,7 @@
             </ul>
         </div>
     </section>
+
     <section *ngSwitchCase="'case'" class="flex-direction-row">
         <app-json-printer></app-json-printer>
     </section>
@@ -38,6 +39,58 @@
 
     <section *ngSwitchCase="'template-object_object'" class="flex-direction-row">
         <app-example-template case="object_object"></app-example-template>
+    </section>
+
+    <section *ngSwitchCase="'elm'" class="flex-direction-row">
+        <h1 class="bg-danger text-white">Elm</h1>
+        <div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item display-4">funkcyjny język programowania</li>
+                <li class="list-group-item display-4">kompilowany do JS</li>
+                <li class="list-group-item display-4">statyczny system typów</li>
+                <li class="list-group-item display-4">niemutowalne struktury danych</li>
+            </ul>
+        </div>
+    </section>
+
+    <section *ngSwitchCase="'runtime_exceptions'" class="flex-direction-row">
+        <h1 class="bg-danger text-white">Brak runtime exceptions</h1>
+        <div>
+            <img src="https://miro.medium.com/max/1296/0*xAkAyZF4yy-k8kbz.png">
+            <small>https://codeburst.io/top-10-javascript-errors-from-1000-projects-and-how-to-avoid-them-2956ce008437</small>
+        </div>
+    </section>
+
+    <section *ngSwitchCase="'decoders'" class="flex-direction-row">
+        <h1 class="bg-danger text-white">Dekodery</h1>
+        <div>
+            <h1 class="m-5">Dekoder jest funkcją, która może pobrać kawałek JSONa i zdekodować go do wartości Elma, z typem pasującym do typu, o którym wie Elm.</h1>
+            <small>https://javascriptplayground.com/json-decoding-in-elm/</small>
+        </div>
+    </section>
+
+    <section *ngSwitchCase="'elm_example'" class="flex-direction-row">
+        <h1 class="bg-danger text-white">Przykład</h1>
+        <app-elm-example></app-elm-example>
+    </section>
+
+    <section *ngSwitchCase="'ts_data_json'" class="flex-direction-row">
+        <h1 class="bg-danger text-white">ts.data.json</h1>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item display-4">biblioteka TS</li>
+            <li class="list-group-item display-4">kompatybilna z NgRx</li>
+            <li class="list-group-item display-4">framework agnostic</li>
+        </ul>
+    </section>
+
+    <section *ngSwitchCase="'decoder_example'" class="flex-direction-row">
+        <h1 class="bg-danger text-white">decoder.ts</h1>
+        <app-decoder-example></app-decoder-example>
+    </section>
+
+    <section *ngSwitchCase="'decode'" class="flex-direction-row">
+        <h1 class="bg-danger text-white">service</h1>
+        <pre><code [innerText]="serviceCode" [highlight]="serviceCode"></code></pre>
     </section>
 
     <section *ngSwitchDefault>
