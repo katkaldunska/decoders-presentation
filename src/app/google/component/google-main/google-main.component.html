@@ -1,0 +1,126 @@
+<div
+    [ngSwitch]="currentSlide"
+    class="slide"
+>
+    <section *ngSwitchCase="'title'" class="align-self-center">
+        <h1 class="bg-primary text-white">Kontenery w chmurze</h1>
+    </section>
+
+    <section *ngSwitchCase="'iaas_paas'">
+        <h1 class="bg-primary text-white">Google Kubernetes Engine</h1>
+        <div>
+            <img src="../../../assets/images/IaaSvsPaaS.png">
+        </div>
+        <div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item"><strong>IaaS</strong> - dostęp do serwerów, systemu plików i networkingu - płatność za to, co zaalokujemy.</li>
+                <li class="list-group-item"><strong>PaaS</strong> - ustawione czasy pracy, zarządzane usługi - płatność za to, czego używamy.</li>
+                <li class="list-group-item"><strong>Kubernetes Engine</strong> - hybryda pomiędzy IaaS a PaaS.</li>
+                <li class="list-group-item">Kontenery oferują elastyczność IaaS i skalowalność PaaS</li>
+            </ul>
+        </div>
+    </section>
+
+    <section *ngSwitchCase="'containers'">
+        <h1 class="bg-primary text-white">Kontenery</h1>
+        <ul class="list-group list-group-flush m-5">
+            <li class="list-group-item display-4"><h2>Zapewniają abstrakcyjną warstwę hardware'u i OSu</h2></li>
+            <li class="list-group-item display-4"><h2>Dostęp do konfiguracji izolowanych partycji systemu, pamięci RAM i networkingu</h2></li>
+            <li class="list-group-item display-4"><h2>Szybki startup</h2></li>
+            <li class="list-group-item display-4"><h2>Dzięki abstrakcji kod jest przenośny - można traktować OS i hardware jako czarną skrzynkę</h2></li>
+        </ul>
+    </section>
+
+    <section *ngSwitchCase="'cluster'">
+        <h1 class="bg-primary text-white">Klaster</h1>
+        <h2 class="m-5">Wspólna konfiguracja hosta umożliwia wdrożenie grupy kontenerów na grupie serwerów - klastrze. Za pomocą klastra możemy:</h2>
+        <ul class="list-group list-group-flush m-5">
+            <li class="list-group-item"><h3>połączyć kontenery używając połączeń sieciowych</h3></li>
+            <li class="list-group-item"><h3>mieć modułowy kod</h3></li>
+            <li class="list-group-item"><h3>łatwe wdrożenia</h3></li>
+            <li class="list-group-item"><h3>skalować kontenery i hosty niezależenie dla max wydajności i oszczędności</h3></li>
+        </ul>
+    </section>
+
+    <section *ngSwitchCase="'tools'">
+        <h1 class="bg-primary text-white">Narzędzia</h1>
+        <ul class="list-group list-group-flush m-5">
+            <li class="list-group-item display-4">Docker</li>
+            <li class="list-group-item display-4">Google Cloud Build (Google Container Builder)</li>
+            <li class="list-group-item display-4">Google Container Registry</li>
+        </ul>
+    </section>
+
+    <section *ngSwitchCase="'api'">
+        <h1 class="bg-primary text-white">Kubernetes API</h1>
+        <div>
+            <img src="../../../assets/images/api.png">
+        </div>
+        <ul class="list-group list-group-flush m-5">
+            <li class="list-group-item"><h2>do wdrożenia kontenerów do klastru (klaster - zestaw węzłów)</h2></li>
+            <li class="list-group-item"><h2>system jest podzielony na komponenty master (które działają jako płaszczyzna sterowania) oraz zestaw węzłów uruchamiających kontenery</h2></li>
+            <li class="list-group-item"><h2>węzły są VM działającymi na Compute Engine</h2></li>
+        </ul>
+    </section>
+
+    <section *ngSwitchCase="'ke_bootstrap'">
+        <h1 class="bg-primary text-white">Tworzenie klastra</h1>
+        <pre><code
+                [innerText]="createCluster"
+                [highlight]="createCluster"
+                class="m-5"
+        ></code></pre>
+        <ul class="list-group list-group-flush m-5">
+            <li class="list-group-item"><h2>wdrażając kontener/y na klaster tworzy się <strong>pod</strong> - najmniejsza jednostka Kubernetesa</h2></li>
+            <li class="list-group-item"><h2>zazwyczaj 1 kontener - 1 pod</h2></li>
+            <li class="list-group-item"><h2>pod zapewnia unikalny adres IP sieci, zestaw portów dla kontenerów i opcje które, określają sposób działania kontenerów</h2></li>
+            <li class="list-group-item"><h2>kontenery w pod'zie mogą komunikować się ze sobą za pomocą localhosta i portów, które pozostają stałe gdy są uruchamiane i zatrzymywane na różnych węzłach</h2></li>
+        </ul>
+    </section>
+
+    <section *ngSwitchCase="'kubectl'">
+        <h1 class="bg-primary text-white">kubectl</h1>
+        <pre><code
+            [innerText]="runCluster"
+            [highlight]="runCluster"
+            class="m-5"
+        ></code></pre>
+        <ul class="list-group list-group-flush m-5">
+            <li class="list-group-item"><h2><strong>kubectl</strong> - zestaw instrukcji dla Kubernetes API</h2></li>
+            <li class="list-group-item"><h2>start deploymentu kontenera uruchomionego w pod'zie</h2></li>
+        </ul>
+    </section>
+
+    <section *ngSwitchCase="'kubectl_get'">
+        <h1 class="bg-primary text-white">kubectl get pods</h1>
+        <pre><code
+            [innerText]="getPods"
+            [highlight]="getPods"
+            class="m-5"
+        ></code></pre>
+        <h2 class="m-5">Komenda zezwala zobaczyć działające pod'y.</h2>
+    </section>
+
+    <section *ngSwitchCase="'kubectl c.d.'">
+        <h1 class="bg-primary text-white">kubectl expose</h1>
+        <h2 class="m-5">Domyślnie pod'y są dostępne tylko w klastrze i dostają efemeryczne adresy IP</h2>
+        <pre><code
+            [innerText]="connectLoadBalancer"
+            [highlight]="connectLoadBalancer"
+            class="m-5"
+        ></code></pre>
+        <h2 class="m-5">Aby udostępnić je publicznie ze stałym IP, można podłączyć load balancera do Deploymentu</h2>
+        <pre><code
+            [innerText]="getServices"
+            [highlight]="getServices"
+            class="m-5"
+        ></code></pre>
+        <h2 class="m-5">Pobranie publicznych adresów IP serwisów</h2>
+    </section>
+
+
+
+    <section *ngSwitchDefault>
+        <h1>KONIEC</h1>
+    </section>
+</div>
