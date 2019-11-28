@@ -3,11 +3,11 @@ import { ScannedActionsSubject, Store } from '@ngrx/store';
 import { Observable, Subscription } from 'rxjs';
 import { filter, map } from 'rxjs/operators';
 
-import { AuthorListStore } from '../../store';
-import { AuthorListLoadResult } from '../../store/reducer';
-import { AuthorListActions, loadAuthorList, loadAuthorListInvalid } from '../../store/actions';
-import { AuthorItem } from '../../store/model';
-import { AuthorListService } from '../../store/service';
+import { AuthorListStore } from '../../../store';
+import { AuthorListLoadResult } from '../../../store/reducer';
+import { AuthorListActions, loadAuthorList, loadAuthorListInvalid } from '../../../store/actions';
+import { AuthorItem } from '../../../store/model';
+import { AuthorListService } from '../../../store/service';
 
 @Component({
     selector: 'app-example-template',

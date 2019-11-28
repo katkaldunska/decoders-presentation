@@ -1,8 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 
-import { AuthorItem } from '../../store/model';
-import { AuthorListService } from '../../store/service';
+import { AuthorItem } from '../../../store/model';
+import { AuthorListService } from '../../../store/service';
 
 @Component({
     selector: 'app-json-printer',

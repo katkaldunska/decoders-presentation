@@ -1,41 +1,15 @@
 import { Component, HostListener } from '@angular/core';
+import { ngSlides } from './ng/slides';
+import { googleSlides } from './google/slides';
 
 @Component({
     selector: 'app-root',
-    templateUrl: './app.component.html',
-    styleUrls: ['./app.component.scss']
+    templateUrl: './app.component.html'
 })
 export class AppComponent {
-    public slides: string[] = [
-        'title',
-        'problem',
-        'case',
-        'code',
-        'template-default',
-        'case_change',
-        'template-change',
-        'case_object_object',
-        'template-object_object',
-        'elm',
-        'runtime_exceptions',
-        'decoders',
-        'elm_example',
-        'ts_data_json',
-        'decoder_example',
-        'decode',
-        'result'
-    ];
+    public slides: string[] = googleSlides;
+    public currentPresentation: 'ng' | 'google' = 'google';
     public currentSlide: string;
-    public serviceCode = `
-        return this.http.get<AuthorItem[]>(path).pipe(
-                concatMap(p => fromPromise(AuthorListDecoder
-                    .decodePromise(p)
-                    .catch(e => {
-                        throw new Error(e);
-                    })
-                ))
-            );
-    `;
 
     @HostListener('document:keydown', ['$event'])
     onKeydown(event: KeyboardEvent) {
@@ -50,8 +24,20 @@ export class AppComponent {
         this.currentSlide = 'title';
     }
 
+    public changePresentation(): void {
+        if (this.currentPresentation === 'ng') {
+            this.currentPresentation = 'google';
+            this.slides = googleSlides;
+        } else {
+            this.currentPresentation = 'ng';
+            this.slides = ngSlides;
+        }
+        this.currentSlide = this.slides[0];
+    }
+
     private setCurrentSlide(increment: number): void {
         const currentIndex: number = this.slides.findIndex(s => s === this.currentSlide);
+        console.log(this.slides)
 
         if (currentIndex === -1 && increment === -1) {
             this.currentSlide = this.slides[this.slides.length - 1];
