@@ -1,0 +1,37 @@
+[
+    {
+        "author": "Stephen King",
+        "age": 72,
+        "work": {
+            "books": [
+                "Pet Sematary",
+                "Salem’s lot",
+                "Carrie"
+            ]
+        },
+        "alive": true
+    },
+    {
+        "author": "Neil Gaiman",
+        "age": 59,
+        "work": {
+            "books": [
+                "American Gods",
+                "Sandman"
+            ]
+        },
+        "alive": true
+    },
+    {
+        "author": "J.R.R. Tolkien",
+        "age": 81,
+        "work": {
+            "books": [
+                "Hobbit",
+                "Silmarillion",
+                "Roverandom"
+            ]
+        },
+        "alive": false
+    }
+]
