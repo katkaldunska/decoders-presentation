@@ -14,30 +14,37 @@
     </section>
 
     <section *ngSwitchCase="'case'" class="flex-direction-row">
+        <h1 class="bg-danger text-white">JSON</h1>
         <app-json-printer></app-json-printer>
     </section>
 
     <section *ngSwitchCase="'code'" class="flex-direction-row">
+        <h1 class="bg-danger text-white">Komponent</h1>
         <app-example-code></app-example-code>
     </section>
 
     <section *ngSwitchCase="'template-default'" class="flex-direction-row">
+        <h1 class="bg-danger text-white">Rezultat</h1>
         <app-example-template></app-example-template>
     </section>
 
     <section *ngSwitchCase="'case_change'" class="flex-direction-row">
+        <h1 class="bg-danger text-white">JSON v2</h1>
         <app-json-printer case="invalid"></app-json-printer>
     </section>
 
     <section *ngSwitchCase="'template-change'" class="flex-direction-row">
+        <h1 class="bg-danger text-white">Rezultat v2</h1>
         <app-example-template case="invalid"></app-example-template>
     </section>
 
     <section *ngSwitchCase="'case_object_object'" class="flex-direction-row">
+        <h1 class="bg-danger text-white">JSON v3</h1>
         <app-json-printer case="object_object"></app-json-printer>
     </section>
 
     <section *ngSwitchCase="'template-object_object'" class="flex-direction-row">
+        <h1 class="bg-danger text-white">Rezultat v3</h1>
         <app-example-template case="object_object"></app-example-template>
     </section>
 
@@ -70,7 +77,7 @@
     </section>
 
     <section *ngSwitchCase="'elm_example'" class="flex-direction-row">
-        <h1 class="bg-danger text-white">Przykład</h1>
+        <h1 class="bg-danger text-white">Elm - dekoder</h1>
         <app-elm-example></app-elm-example>
     </section>
 
@@ -89,8 +96,13 @@
     </section>
 
     <section *ngSwitchCase="'decode'" class="flex-direction-row">
-        <h1 class="bg-danger text-white">service</h1>
+        <h1 class="bg-danger text-white">service.ts</h1>
         <pre><code [innerText]="serviceCode" [highlight]="serviceCode"></code></pre>
+    </section>
+
+    <section *ngSwitchCase="'result'" class="flex-direction-row">
+        <h1 class="bg-danger text-white">Rezultat</h1>
+        <app-example-template case="invalid_with_decoder"></app-example-template>
     </section>
 
     <section *ngSwitchDefault>

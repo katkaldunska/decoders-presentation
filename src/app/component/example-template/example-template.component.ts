@@ -5,7 +5,7 @@ import { filter, map } from 'rxjs/operators';
 
 import { AuthorListStore } from '../../store';
 import { AuthorListLoadResult } from '../../store/reducer';
-import { AuthorListActions, loadAuthorList } from '../../store/actions';
+import { AuthorListActions, loadAuthorList, loadAuthorListInvalid } from '../../store/actions';
 import { AuthorItem } from '../../store/model';
 import { AuthorListService } from '../../store/service';
 
@@ -25,9 +25,11 @@ export class ExampleTemplateComponent implements OnInit, OnDestroy {
     ) {
     }
 
-    ngOnInit() {
+    ngOnInit(): void {
         if (this.case === 'default') {
-            this.playDefaultScenario();
+            this.loadWithDecoder();
+        } else if (this.case === 'invalid_with_decoder') {
+            this.loadWithDecoder(true);
         } else if (this.case === 'invalid') {
             this.authorList$ = this.authorListService.getAuthorListInvalid().pipe(map(items => ({
                 items,
@@ -51,7 +53,7 @@ export class ExampleTemplateComponent implements OnInit, OnDestroy {
         return item.books.sort();
     }
 
-    private playDefaultScenario(): void {
+    private loadWithDecoder(getInvalidData: boolean = false): void {
         this.authorList$ = this.store.select(state => state.authorList);
 
         this.subscriptions.push(
@@ -62,6 +64,6 @@ export class ExampleTemplateComponent implements OnInit, OnDestroy {
             )
         );
 
-        this.store.dispatch(loadAuthorList());
+        getInvalidData ? this.store.dispatch(loadAuthorListInvalid()) : this.store.dispatch(loadAuthorList());
     }
 }

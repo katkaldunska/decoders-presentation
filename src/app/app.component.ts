@@ -22,7 +22,8 @@ export class AppComponent {
         'elm_example',
         'ts_data_json',
         'decoder_example',
-        'decode'
+        'decode',
+        'result'
     ];
     public currentSlide: string;
     public serviceCode = `

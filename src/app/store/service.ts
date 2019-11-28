@@ -11,28 +11,22 @@ import { AuthorItem } from './model';
     providedIn: 'root'
 })
 export class AuthorListService {
-    constructor(public http: HttpClient) {}
+    constructor(private http: HttpClient) {}
 
-    getAuthorListSimple() {
+    public getAuthorListSimple(): Observable<AuthorItem[]>  {
         return this.http.get<AuthorItem[]>('assets/mocks/list.json');
     }
 
-    getAuthorListInvalid() {
+    public getAuthorListInvalid(): Observable<AuthorItem[]>  {
         return this.http.get<AuthorItem[]>('assets/mocks/invalid-list.json');
     }
 
-    getAuthorListObjectObject() {
+    public getAuthorListObjectObject(): Observable<AuthorItem[]> {
         return this.http.get<AuthorItem[]>('assets/mocks/invalid-object-list.json');
     }
 
     public getAuthorList(scenario: string = 'default'): Observable<AuthorItem[]> {
-        let path;
-
-        if (scenario === 'default') {
-            path = 'assets/mocks/list.json';
-        } else if (scenario === 'invalid') {
-            path = 'assets/mocks/invalid-list.json';
-        }
+        const path: string = scenario === 'default' ? 'assets/mocks/list.json' : 'assets/mocks/invalid-list.json';
 
         return this.http.get<AuthorItem[]>(path).pipe(
             concatMap(p => fromPromise(AuthorListDecoder
