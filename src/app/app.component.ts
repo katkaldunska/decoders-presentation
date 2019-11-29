@@ -13,9 +13,9 @@ export class AppComponent {
 
     @HostListener('document:keydown', ['$event'])
     onKeydown(event: KeyboardEvent) {
-        if (event.code === 'ArrowRight' || event.code === 'ArrowDown') {
+        if (['ArrowRight', 'ArrowDown', 'PageDown'].includes(event.code)) {
             this.setCurrentSlide(1);
-        } else if (event.code === 'ArrowLeft' || event.code === 'ArrowUp') {
+        } else if (['ArrowLeft', 'ArrowUp', 'PageUp'].includes(event.code)) {
             this.setCurrentSlide(-1);
         }
     }
@@ -37,7 +37,6 @@ export class AppComponent {
 
     private setCurrentSlide(increment: number): void {
         const currentIndex: number = this.slides.findIndex(s => s === this.currentSlide);
-        console.log(this.slides)
 
         if (currentIndex === -1 && increment === -1) {
             this.currentSlide = this.slides[this.slides.length - 1];
