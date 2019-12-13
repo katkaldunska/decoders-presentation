@@ -9,7 +9,7 @@ import { googleSlides } from './google/slides';
 export class AppComponent {
     public slides: string[] = googleSlides;
     public currentPresentation: 'ng' | 'google' = 'google';
-    public currentSlide: string;
+    public currentSlide = 'title';
 
     @HostListener('document:keydown', ['$event'])
     onKeydown(event: KeyboardEvent) {
@@ -18,10 +18,6 @@ export class AppComponent {
         } else if (['ArrowLeft', 'ArrowUp', 'PageUp'].includes(event.code)) {
             this.setCurrentSlide(-1);
         }
-    }
-
-    constructor() {
-        this.currentSlide = 'title';
     }
 
     public changePresentation(): void {
@@ -36,12 +32,12 @@ export class AppComponent {
     }
 
     private setCurrentSlide(increment: number): void {
-        const currentIndex: number = this.slides.findIndex(s => s === this.currentSlide);
+        const previousIndex: number = this.slides.findIndex(s => s === this.currentSlide);
 
-        if (currentIndex === -1 && increment === -1) {
+        if (previousIndex === -1 && increment === -1) {
             this.currentSlide = this.slides[this.slides.length - 1];
         } else {
-            this.currentSlide = this.slides[currentIndex + increment];
+            this.currentSlide = this.slides[previousIndex + increment];
         }
     }
 }

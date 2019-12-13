@@ -2,7 +2,8 @@ import { Component, Input } from '@angular/core';
 
 @Component({
     selector: 'app-google-main',
-    templateUrl: './google-main.component.html'
+    templateUrl: './google-main.component.html',
+    styleUrls: ['./google-main.component.scss']
 })
 export class GoogleMainComponent {
     @Input() currentSlide: string;

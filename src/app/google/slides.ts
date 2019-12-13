@@ -1,9 +1,11 @@
 export const googleSlides: string[] = [
     'title',
+    'kubernetes',
+    'tools',
+    'minikube',
     'iaas_paas',
     'containers',
     'cluster',
-    'tools',
     'api',
     'ke_bootstrap',
     'kubectl',

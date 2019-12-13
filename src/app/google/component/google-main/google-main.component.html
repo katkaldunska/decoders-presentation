@@ -1,9 +1,44 @@
 <div
     [ngSwitch]="currentSlide"
+    [ngClass]="currentSlide"
     class="slide"
 >
     <section *ngSwitchCase="'title'" class="align-self-center">
         <h1 class="bg-primary text-white">Kontenery w chmurze</h1>
+    </section>
+
+    <section *ngSwitchCase="'kubernetes'">
+        <h1 class="bg-primary text-white">Kubernetes</h1>
+        <div>
+            <img
+                class="embed-responsive"
+                src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/Kubernetes_%28container_engine%29.png/927px-Kubernetes_%28container_engine%29.png"
+                alt="Kubernetes's logo"
+            >
+        </div>
+        <div>
+            <q class="text-primary text-center display-4">Run billions of containers a week, Kubernetes can scale without increasing your ops team</q>
+        </div>
+    </section>
+
+    <section *ngSwitchCase="'tools'">
+        <h1 class="bg-primary text-white">Narzędzia</h1>
+        <ul class="list-group list-group-flush m-4">
+            <li class="list-group-item display-4">Docker</li>
+            <li class="list-group-item display-4">Google Cloud Build (Google Container Builder)</li>
+            <li class="list-group-item display-4">Google Container Registry</li>
+        </ul>
+    </section>
+
+    <section *ngSwitchCase="'minikube'">
+        <h1 class="bg-primary text-white">Minikube</h1>
+        <div>
+            <ul>
+                <li class="display-4">Hypervisor</li>
+                <li class="display-4">Kubectl</li>
+                <li class="display-4">Minikube</li>
+            </ul>
+        </div>
     </section>
 
     <section *ngSwitchCase="'iaas_paas'">
@@ -39,15 +74,6 @@
             <li class="list-group-item"><h3>mieć modułowy kod</h3></li>
             <li class="list-group-item"><h3>łatwe wdrożenia</h3></li>
             <li class="list-group-item"><h3>skalować kontenery i hosty niezależenie dla max wydajności i oszczędności</h3></li>
-        </ul>
-    </section>
-
-    <section *ngSwitchCase="'tools'">
-        <h1 class="bg-primary text-white">Narzędzia</h1>
-        <ul class="list-group list-group-flush m-4">
-            <li class="list-group-item display-4">Docker</li>
-            <li class="list-group-item display-4">Google Cloud Build (Google Container Builder)</li>
-            <li class="list-group-item display-4">Google Container Registry</li>
         </ul>
     </section>
 
@@ -101,7 +127,7 @@
         <h2 class="m-4">Komenda zezwala zobaczyć działające pod'y.</h2>
     </section>
 
-    <section *ngSwitchCase="'kubectl c.d.'">
+    <section *ngSwitchCase="'kubectl_expose'">
         <h1 class="bg-primary text-white">kubectl expose</h1>
         <h2 class="m-4">Domyślnie pod'y są dostępne tylko w klastrze i dostają efemeryczne adresy IP</h2>
         <pre><code
