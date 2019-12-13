@@ -22,6 +22,7 @@
     "@ng-bootstrap/ng-bootstrap": "^5.1.4",
     "@ngrx/effects": "^8.5.2",
     "@ngrx/store": "^8.5.2",
+    "angular-cli-ghpages": "^0.6.0",
     "ngx-highlightjs": "^4.0.0",
     "rxjs": "~6.4.0",
     "ts.data.json": "^0.3.0",

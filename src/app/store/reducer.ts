@@ -34,6 +34,6 @@ const reducer = createReducer(initialState,
     })
 );
 
-export const authorListReducer = (state, action) => {
+export function authorListReducer(state, action): AuthorListLoadResult {
     return reducer(state, action);
-};
+}
